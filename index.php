@@ -11,7 +11,7 @@
 <h1>Authentication</h1>
 <form action="settings.php">
     <p><label>User <input type="text"/></label></p>
-    <p><label>Password <input type="password"/></label></p>
+    <p><label>Password<input type="password"/></label></p>
     <p><input type="submit" value="Submit"/></p>
 </form>
 </body>
