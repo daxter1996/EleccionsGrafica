@@ -8,6 +8,15 @@
     <title>Settings</title>
 </head>
 <body>
+<?php
+$array = ["Joel" => "esselte15", "Neus" => "esselte14", "Xavier" => "esselte13", "Jesus" => "esselte12"];
+$user = $_POST["user"];
+$password = $_POST["password"];
+if (!(isset($array[$user]) && $array[$user] == $password)) {
+    header("Location: index.php");
+    die();
+}
+?>
 <h1>Settings</h1>
 <form action="settings2.php" method="post">
     <p><label>Number representatives asdfasdf <input type="number" name="representatives" min="1"/></label></p>
