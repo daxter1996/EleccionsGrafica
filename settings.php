@@ -36,8 +36,7 @@ function returnState($name,$nomCerca){
     <p><label>Number representatives <input type="number" name="representatives" min="1" value="<?php echo returnState('representatives', 'settings1');?>"/></label></p>
     <p><label>Number votes <input type="number" name="votes" min="1" value="<?php echo returnState('votes', 'settings1');?>"/></label></p>
     <p><label>Number lists of candidates <input type="number" name="lists" min="1" value="<?php echo returnState('lists', 'settings1');?>"/></label></p>
-    <p><input type="submit" name="submit" value="Submit"/></p>
-    <p><input type="submit" name="exit" value="Exit"/></p>
+    <p><input type="submit" name="submit" value="Submit"/> <input type="submit" name="exit" value="Exit"/></p>
 </form>
 </body>
 </html>
