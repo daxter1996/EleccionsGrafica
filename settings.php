@@ -17,11 +17,9 @@ if (!(isset($array[$user]) && $array[$user] == $password)) {
     die();
 }
 
-function saveState($name, $info){
-    if($_COOKIE[$name] == null){
-        setcookie($name,$info,time()+30*24*60*60);
-    }else{
-        setcookie($name,$info);
+function saveState($array){
+    foreach($array as $key => $value){
+        setcookie($key,$value, time()+30*24*3600);
     }
 }
 
