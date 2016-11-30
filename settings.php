@@ -17,13 +17,20 @@ if (empty($array[$user]) || $array[$user] != $password) {
     die();
 }
 
-function returnState($name){
-    return $_COOKIE[$name];
+function returnState($name,$nomCerca){
+    $string = $_COOKIE[$nomCerca];
+    $array1 = explode(",",$string);
+    $array2 = [];
+    foreach ($array1 as $item) {
+        $separa = explode("=>",$item);
+        $array2[$separa[0]] = $separa[1];
+    }
+    return $array2[$name];
 }
 ?>
 <h1>Settings</h1>
 <form action="settings2.php" method="post">
-    <p><label>Number representatives <input type="number" name="representatives" min="1"/></label></p>
+    <p><label>Number representatives <input type="number" name="representatives" min="1" default="<?php returnState('representatives');?>"/></label></p>
     <p><label>Number votes <input type="number" name="votes" min="1"/></label></p>
     <p><label>Number lists of candidates <input type="number" name="lists" min="1"/></label></p>
     <p><input type="submit" name="submit" value="Submit"/></p>
