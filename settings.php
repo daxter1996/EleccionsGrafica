@@ -12,7 +12,7 @@
 $array = ["Joel" => "esselte15", "Neus" => "esselte14", "Xavier" => "esselte13", "Jesus" => "esselte12"];
 $user = $_POST["user"];
 $password = $_POST["password"];
-if (!(isset($array[$user]) && $array[$user] == $password)) {
+if (empty($array[$user]) || $array[$user] != $password) {
     header("Location: index.php");
     die();
 }
