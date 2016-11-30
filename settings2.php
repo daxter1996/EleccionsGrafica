@@ -8,6 +8,20 @@
     <title>Settings 2</title>
 </head>
 <body>
+<?php
+function saveState($array){
+    foreach($array as $key => $value){
+        setcookie($key,$value, time()+30*24*3600);
+    }
+}
+
+if(isset($_POST['exit'])) {
+    $array = ["representatives" => $_POST["representatives"], "votes" => $_POST["votes"] , "lists" => $_POST["lists"]];
+    saveState($array);
+    header("Location: index.php");
+    die();
+}
+?>
 <h1>Settings 2</h1>
 <form>
     <?php
