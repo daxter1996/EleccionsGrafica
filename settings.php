@@ -16,6 +16,19 @@ if (!(isset($array[$user]) && $array[$user] == $password)) {
     header("Location: index.php");
     die();
 }
+
+function saveState($name, $info){
+    if($_COOKIE[$name] == null){
+        setcookie($name,$info,time()+30*24*60*60);
+    }else{
+        setcookie($name,$info);
+    }
+}
+
+function returnState($name){
+    return $_COOKIE[$name];
+}
+
 ?>
 <h1>Settings</h1>
 <form action="settings2.php" method="post">
