@@ -9,15 +9,13 @@
 </head>
 <body>
 <?php
-function saveState($array){
-    foreach($array as $key => $value){
-        setcookie($key,$value, time()+30*24*3600);
-    }
+function saveState($text){
+    setcookie("settings1", $text, time()+30*24*3600);
 }
 
 if(isset($_POST['exit'])) {
-    $array = ["representatives" => $_POST["representatives"], "votes" => $_POST["votes"] , "lists" => $_POST["lists"]];
-    saveState($array);
+    $text = "representatives=>" . $_POST["representatives"] . ",votes=>" . $_POST["votes"] . ",lists=>" . $_POST["lists"];
+    saveState($text);
     header("Location: index.php");
     die();
 }

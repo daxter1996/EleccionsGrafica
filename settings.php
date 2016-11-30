@@ -25,14 +25,17 @@ function returnState($name,$nomCerca){
         $separa = explode("=>",$item);
         $array2[$separa[0]] = $separa[1];
     }
-    return $array2[$name];
+    if(isset($array2[$name]))
+        return $array2[$name];
+    else
+        return 1;
 }
 ?>
 <h1>Settings</h1>
 <form action="settings2.php" method="post">
-    <p><label>Number representatives <input type="number" name="representatives" min="1" default="<?php returnState('representatives');?>"/></label></p>
-    <p><label>Number votes <input type="number" name="votes" min="1"/></label></p>
-    <p><label>Number lists of candidates <input type="number" name="lists" min="1"/></label></p>
+    <p><label>Number representatives <input type="number" name="representatives" min="1" value="<?php echo returnState('representatives', 'settings1');?>"/></label></p>
+    <p><label>Number votes <input type="number" name="votes" min="1" value="<?php echo returnState('votes', 'settings1');?>"/></label></p>
+    <p><label>Number lists of candidates <input type="number" name="lists" min="1" value="<?php echo returnState('lists', 'settings1');?>"/></label></p>
     <p><input type="submit" name="submit" value="Submit"/></p>
     <p><input type="submit" name="exit" value="Exit"/></p>
 </form>
