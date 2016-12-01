@@ -33,11 +33,14 @@ function returnState($name,$nomCerca){
 ?>
 <h1>Settings</h1>
 <form action="settings2.php" method="post">
-    <p><label>Number representatives <input type="number" name="representatives" min="1" value="<?php echo returnState('representatives', 'settings1');?>"/></label></p>
-    <p><label>Number votes <input type="number" name="votes" min="1" value="<?php echo returnState('votes', 'settings1');?>"/></label></p>
-    <p><label>Number lists of candidates <input type="number" name="lists" min="1" value="<?php echo returnState('lists', 'settings1');?>"/></label></p>
-    <p><input type="submit" name="submit" value="Submit"/></p>
-    <p><input type="submit" name="exit" value="Exit"/></p>
+    <p><label>Number of Votes <input type="number" name="votes" min="1" value="<?php echo returnState('votes', 'settings1');?>"/></label></p>
+    <p><label>Parties <input type="number" name="parties" min="1" value="<?php echo returnState('parties', 'settings1');?>"/></label></p>
+    <p><label>Number of towns <input type="number" name="towns" min="1" value="<?php echo returnState('towns', 'settings1');?>"/></label></p>
+    <p><label>Representatives <input type="number" name="representatives" min="1" value="<?php echo returnState('representatives', 'settings1');?>"/></label></p>
+    <p><input type="submit" name="votes" value="Introduce Votes"/>
+    <input type="submit" name="representatives" value="Introduce Representatives"/></p>
+    <hr/>
+    <p><input type="submit" name="exit" value="Log Out"/></p>
 </form>
 </body>
 </html>

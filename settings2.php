@@ -14,21 +14,22 @@ function saveState($text){
 }
 
 if(isset($_POST['exit'])) {
-    $text = "representatives=>" . $_POST["representatives"] . ",votes=>" . $_POST["votes"] . ",lists=>" . $_POST["lists"];
+    $text = "votes=>" . $_POST["votes"] . ",parties=>" . $_POST["parties"] . ",towns=>" . $_POST["towns"] . ",representatives=>" . $_POST["representatives"];
+    //echo $text;
     saveState($text);
     header("Location: index.php");
     die();
 }
 ?>
-<h1>Settings 2</h1>
+<h1>Representatives</h1>
 <form>
     <?php
-    for ($i = 0; $i < $_POST['lists']; $i++) {
+        for ($i = 0; $i < $_POST['lists']; $i++) {
         ?>
-        <p><label>Name <input type="text"></label></p>
-        <p><label>Representatives <br/><textarea></textarea></label></p>
+        <p><label>Name <input type="text"></label>
+        <label>Representatives<textarea></textarea></label></p>
         <?php
-    }
+        }
     ?>
 </form>
 </body>
