@@ -1,5 +1,13 @@
 <!doctype html>
 <html lang="en">
+<?php
+$array = ["Joel" => "esselte15", "Neus" => "esselte14", "Xavier" => "esselte13", "Jesus" => "esselte12"];
+$user = $_POST["user"];
+$password = $_POST["password"];
+if (empty($array[$user]) || $array[$user] != $password) {
+    header("Location: index.php");
+}
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,14 +17,6 @@
 </head>
 <body>
 <?php
-$array = ["Joel" => "esselte15", "Neus" => "esselte14", "Xavier" => "esselte13", "Jesus" => "esselte12"];
-$user = $_POST["user"];
-$password = $_POST["password"];
-if (empty($array[$user]) || $array[$user] != $password) {
-    header("Location: index.php");
-    die();
-}
-
 function returnState($name,$nomCerca){
     $string = $_COOKIE[$nomCerca];
     $array1 = explode(",",$string);
