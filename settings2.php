@@ -1,5 +1,3 @@
-<!doctype html>
-<html lang="en">
 <?php
 function saveState($text){
     setcookie("settings1", $text, time()+30*24*3600);
@@ -9,8 +7,11 @@ if(isset($_POST['exit'])) {
     $text = "representatives=>" . $_POST["representatives"] . ",votes=>" . $_POST["votes"] . ",lists=>" . $_POST["lists"];
     saveState($text);
     header("Location: index.php");
+    exit();
 }
 ?>
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
