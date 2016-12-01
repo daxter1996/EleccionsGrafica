@@ -4,5 +4,5 @@
 
 
 function mostraForm() {
-    document.getElementById("repFrom").style.display= 'block';
+    document.getElementById("repForm").style.display= 'block';
 }
