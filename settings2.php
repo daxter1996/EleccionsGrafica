@@ -23,14 +23,17 @@ if(isset($_POST['exit'])) {
 ?>
 <h1>Representatives</h1>
 <form>
+    <table>
     <?php
-        for ($i = 0; $i < $_POST['lists']; $i++) {
-        ?>
-        <p><label>Name <input type="text"></label>
-        <label>Representatives<textarea></textarea></label></p>
-        <?php
+        for ($i = 0; $i <= $_POST['towns']; $i++) {
+            echo "<tr>";
+            for($j = 0;$j<=$_POST['parties'];$j++){
+                echo "<td><input name='table".$j."-". $i ."'/></td>";
+            }
+            echo "</tr>";
         }
     ?>
+    </table>
 </form>
 </body>
 </html>
