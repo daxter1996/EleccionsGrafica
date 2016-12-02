@@ -25,10 +25,28 @@ if(isset($_POST['exit'])) {
 <form>
     <table>
     <?php
+        $tmp;
+        $tableInfo = ["Blanks","Nulls"];
+
+        for($i = 0;$i<$_POST["parties"];$i++){
+            array_push($tableInfo,$_POST["party-".$i]);
+        }
+
+
+
+        echo print_r($tableInfo);
+
         for ($i = 0; $i <= $_POST['towns']; $i++) {
             echo "<tr>";
-            for($j = 0;$j<=$_POST['parties'];$j++){
-                echo "<td><input name='table".$j."-". $i ."'/></td>";
+            echo "<td><input name='town".$i."-". $i ."'/></td>";
+            if($i == 0){
+                for($j = 0;$j<$_POST['parties']+2;$j++){
+                    echo "<td><input value='$tableInfo[$j]' name='" . $tableInfo[$j] . "-" . $i . "'/></td>";
+                }
+            }else {
+                for ($j = 0; $j <= $_POST['parties']+1; $j++) {
+                    echo "<td><input name='table" . $i . "-" . $tableInfo[$j] . "'/></td>";
+                }
             }
             echo "</tr>";
         }
