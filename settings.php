@@ -32,23 +32,18 @@
     }
     ?>
     <h1>Settings</h1>
-    <form action="settings2.php" method="post">
+    <form id="formRepresentatives" action="settings2.php" method="post">
         <p><label>Number of Votes <input type="number" name="votes" min="1" value="<?php echo returnState('votes', 'settings1');?>"/></label></p>
-        <p><label>Parties <input type="number" name="parties" min="1" value="<?php echo returnState('parties', 'settings1');?>"/></label></p>
+        <p><label>Parties <input id="parti" type="number" name="parties" min="1" value="<?php echo returnState('parties', 'settings1');?>"/></label></p>
         <p><label>Number of towns <input type="number" name="towns" min="1" value="<?php echo returnState('towns', 'settings1');?>"/></label></p>
         <p><label>Representatives <input type="number" name="representatives" min="1" value="<?php echo returnState('representatives', 'settings1');?>"/></label></p>
-        <p><input type="submit" name="votes" value="Introduce Votes"/>
+        <div id="repForm" style="display: none">
+            <hr/>
+        </div>
         <hr/>
         <p><input type="submit" name="exit" value="Log Out"/></p>
     </form>
-    <input type="submit" name="representatives" onclick="mostraForm()" value="Introduce Representatives"/></p>
-    <div id="repForm" style="display: none">
-        asdfasdf
-        <form action="settings2.php" method="post">
-
-
-        </form>
-    </div>
+    <input id="button" type="submit" name="representatives" onclick="mostraForm()" value="Introduce Representatives"/></p>
 <script style="text/javascript" src="javascript.js"></script>
 </body>
 </html>
