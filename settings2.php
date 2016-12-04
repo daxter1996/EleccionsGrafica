@@ -22,36 +22,38 @@ if(isset($_POST['exit'])) {
 }
 ?>
 <h1>Representatives</h1>
-<form>
+<form action="votes.php" method="post">
     <table>
+
     <?php
         $tmp;
         $tableInfo = ["Blanks","Nulls"];
+        echo "<input type='hidden' value=".$_POST['towns']." name='towns'/>";
+        echo "<input type='hidden' value=".$_POST['parties']." name='parties'/>";
+
 
         for($i = 0;$i<$_POST["parties"];$i++){
             array_push($tableInfo,$_POST["party-".$i]);
+            echo "<input type='hidden' value=".$_POST["party-".$i]." name='party-". $i ."'/>";
         }
-
-
-
-        echo print_r($tableInfo);
 
         for ($i = 0; $i <= $_POST['towns']; $i++) {
             echo "<tr>";
-            echo "<td><input name='town".$i."-". $i ."'/></td>";
+            echo "<td><input name=".$i."-". 0 ."/></td>";
             if($i == 0){
                 for($j = 0;$j<$_POST['parties']+2;$j++){
-                    echo "<td><input value='$tableInfo[$j]' name='" . $tableInfo[$j] . "-" . $i . "'/></td>";
+                    echo "<th>" . $tableInfo[$j] ."</th>";
                 }
             }else {
                 for ($j = 0; $j <= $_POST['parties']+1; $j++) {
-                    echo "<td><input name='table" . $i . "-" . $tableInfo[$j] . "'/></td>";
+                    echo "<td><input name=" . $i . "-" . ($j+1) . "/></td>";
                 }
             }
             echo "</tr>";
         }
     ?>
     </table>
+    <p><input type="submit" name="exit" value="Vota"/></p>
 </form>
 </body>
 </html>
