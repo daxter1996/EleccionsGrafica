@@ -26,7 +26,6 @@ if(isset($_POST['exit'])) {
     <table>
 
     <?php
-        $tmp;
         $tableInfo = ["Blanks","Nulls"];
         echo "<input type='hidden' value=".$_POST['towns']." name='towns'/>";
         echo "<input type='hidden' value=".$_POST['parties']." name='parties'/>";
@@ -46,7 +45,7 @@ if(isset($_POST['exit'])) {
                 }
             }else {
                 for ($j = 0; $j <= $_POST['parties']+1; $j++) {
-                    echo "<td><input name=" . $i . "-" . ($j+1) . "/></td>";
+                    echo "<td><input type='number' min='0' name=" . $i . "-" . ($j+1) . "/></td>";
                 }
             }
             echo "</tr>";
