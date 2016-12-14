@@ -10,7 +10,7 @@
 <body>
 
 <?php
-
+require_once "HondtElection.php";
     $arrayGeneral = [];
     $tableInfo = ["Blanks","Nulls"];
 
@@ -38,6 +38,11 @@
     }
     echo print_r($representatives);
 
+$blanks = $arrayGeneral["Blanks"];
+unset($arrayGeneral["Blanks"]);
+unset($arrayGeneral["Nulls"]);
+$hondtElection = new HondtElection($arrayGeneral, $blanks, 8);
+echo "<br/><br/>" . $hondtElection;
 
 ?>
 
