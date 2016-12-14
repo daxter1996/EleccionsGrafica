@@ -30,6 +30,14 @@
     }
 
     echo print_r($arrayGeneral);
+
+    $representatives = [];
+
+    for($i = 0;$i<$_POST["parties"];$i++){
+        $representatives[$_POST["party-".$i]] = explode(",",$_POST["representatives-".$i]);;
+    }
+    echo print_r($representatives);
+
 ?>
 
 </body>

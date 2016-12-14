@@ -29,11 +29,14 @@ if(isset($_POST['exit'])) {
         $tableInfo = ["Blanks","Nulls"];
         echo "<input type='hidden' value=".$_POST['towns']." name='towns'/>";
         echo "<input type='hidden' value=".$_POST['parties']." name='parties'/>";
+        echo "<input type='hidden' value=".$_POST['representatives']." name='representatives'/>";
+        echo "<input type='hidden' value=".$_POST['votes']." name='votes'/>";
 
 
         for($i = 0;$i<$_POST["parties"];$i++){
             array_push($tableInfo,$_POST["party-".$i]);
             echo "<input type='hidden' value=".$_POST["party-".$i]." name='party-". $i ."'/>";
+            echo "<input type='hidden' value=".$_POST["representatives-".$i]." name='representatives-". $i ."'/>";
         }
 
         for ($i = 0; $i <= $_POST['towns']; $i++) {
