@@ -10,31 +10,35 @@
 <body>
 
 <?php
-require_once "HondtElection.php";
-$arrayGeneral = [];
-$tableInfo = ["Blanks", "Nulls"];
+
+    $arrayGeneral = [];
+    $tableInfo = ["Blanks","Nulls"];
 
 
-for ($i = 0; $i < $_POST["parties"]; $i++) {
-    array_push($tableInfo, $_POST["party-" . $i]);
-}
-
-for ($i = 0; $i < $_POST["parties"] + 2; $i++) {
-    $arrayGeneral[$tableInfo[$i]] = 0;
-}
-
-for ($i = 1; $i <= $_POST["towns"]; $i++) {
-    for ($j = 1; $j <= $_POST["parties"] + 2; $j++) {
-        $arrayGeneral[$tableInfo[$j - 1]] += $_POST[($i) . "-" . ($j) . "/"];
+    for($i = 0;$i<$_POST["parties"];$i++){
+        array_push($tableInfo,$_POST["party-".$i]);
     }
-}
 
-//echo print_r($arrayGeneral);
-$blanks = $arrayGeneral["Blanks"];
-unset($arrayGeneral["Blanks"]);
-unset($arrayGeneral["Nulls"]);
-$hondtElection = new HondtElection($arrayGeneral, $blanks, 8);
-echo $hondtElection;
+    for($i = 0;$i<$_POST["parties"]+2;$i++){
+        $arrayGeneral[$tableInfo[$i]]= 0;
+    }
+
+    for($i = 1;$i<=$_POST["towns"];$i++){
+        for($j = 1;$j<=$_POST["parties"]+2;$j++){
+            $arrayGeneral[$tableInfo[$j-1]] += $_POST[($i)."-".($j)."/"];
+        }
+    }
+
+    echo print_r($arrayGeneral);
+
+    $representatives = [];
+
+    for($i = 0;$i<$_POST["parties"];$i++){
+        $representatives[$_POST["party-".$i]] = explode(",",$_POST["representatives-".$i]);;
+    }
+    echo print_r($representatives);
+
+
 ?>
 
 </body>
