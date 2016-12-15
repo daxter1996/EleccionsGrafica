@@ -29,19 +29,17 @@ require_once "HondtElection.php";
         }
     }
 
-    //echo print_r($arrayGeneral);
-
     $representatives = [];
 
     for($i = 0;$i<$_POST["parties"];$i++){
         $representatives[$_POST["party-".$i]] = explode(",",$_POST["representatives-".$i]);;
     }
-    //echo print_r($representatives);
 
-$blanks = $arrayGeneral["Blanks"];
+$blanks = (int)$arrayGeneral["Blanks"];
 unset($arrayGeneral["Blanks"]);
 unset($arrayGeneral["Nulls"]);
-$hondtElection = new HondtElection($arrayGeneral, $blanks, $_POST['representatives']);
+
+$hondtElection = new HondtElection($arrayGeneral,$blanks, $_POST['representatives']);
 foreach ($hondtElection->getResult() as $key => $value) {
     echo $key . ": ";
     for($i = 0; $i < $value; $i++) {
@@ -49,8 +47,7 @@ foreach ($hondtElection->getResult() as $key => $value) {
     }
     echo "<br/>";
 }
-//echo "<br/><br/>" . $hondtElection;
-
+//Som es putos amos.
 ?>
 
 </body>

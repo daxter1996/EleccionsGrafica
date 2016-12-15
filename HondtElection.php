@@ -6,7 +6,7 @@ class HondtElection extends Election
     private $votes;
     private $numRepresentatives;
 
-    public function __construct(array $arrayCandidates, int $blank, int $representatives)
+    public function __construct(array $arrayCandidates, $blank, $representatives)
     {
         parent::__construct($arrayCandidates);
         $this->votes = $this->addBlank($blank);
@@ -39,7 +39,7 @@ class HondtElection extends Election
         }
         $this->setResult($representatives);
     }
-    public function addBlank(int $blank) {
+    public function addBlank($blank) {
         $this->votes = 0;
         foreach ($this->getArrayCandidates() as $key => $value)
             $this->votes += $value;
