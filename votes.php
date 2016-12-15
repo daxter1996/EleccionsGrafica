@@ -42,7 +42,6 @@ $blanks = $arrayGeneral["Blanks"];
 unset($arrayGeneral["Blanks"]);
 unset($arrayGeneral["Nulls"]);
 $hondtElection = new HondtElection($arrayGeneral, $blanks, $_POST['representatives']);
-echo "<br/><br/>";
 foreach ($hondtElection->getResult() as $key => $value) {
     echo $key . ": ";
     for($i = 0; $i < $value; $i++) {
